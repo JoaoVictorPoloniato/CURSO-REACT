@@ -24,28 +24,7 @@ class App extends Component {
   };
   
   componentDidMount () {
-    setTimeout(() => {
-      this.setState({
-        posts: [
-          {
-            id: 1,
-            title: 'O primeiro',
-            body: 'O primeiro corpo'
-          },
-           {
-            id: 2,
-            title: 'O segundo',
-            body: 'O segundo corpo'
-           },
-           {
-            id: 3,
-            title: 'O terceiro',
-            body: 'O terceiro corpo'
-           },
-        ]
-      })
-      
-    }, 5000);
+    console.log('OI')
   }
 
 
