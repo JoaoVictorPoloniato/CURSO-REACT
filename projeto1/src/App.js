@@ -40,7 +40,7 @@ handleAClick = (event) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          GitHub do criador do site nao deu teste aparentemente sss
+          GitHub do criador do site
        </a>
       </header>
     </div>
