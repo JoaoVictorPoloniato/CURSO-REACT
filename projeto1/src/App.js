@@ -25,12 +25,20 @@ class App extends Component {
   };
   
   componentDidMount () {
+    this.handleTimeout();
+  }
+
+  componentDidUpdate() {
+    this.handleTimeout();
+  }
+
+  handleTimeout = () => {
     const { posts, counter } = this.state;
     posts[0].title = 'O titulo mudou';
 
     setTimeout(() => {
       this.setState({ posts, counter: counter + 1 });
-    }, 5000);
+    }, 1000);
   }
 
 
