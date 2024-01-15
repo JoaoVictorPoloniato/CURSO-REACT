@@ -4,11 +4,48 @@ import { Component } from 'react';
 
 class App extends Component {
   state = {
-    posts: []
+    posts: [
+      {
+        id: 1,
+        title: 'O primeiro',
+        body: 'O primeiro corpo'
+      },
+       {
+        id: 2,
+        title: 'O segundo',
+        body: 'O segundo corpo'
+       },
+       {
+        id: 3,
+        title: 'O terceiro',
+        body: 'O terceiro corpo'
+       },
+    ]
   };
   
   componentDidMount () {
-    console.log('OI');
+    setTimeout(() => {
+      this.setState({
+        posts: [
+          {
+            id: 1,
+            title: 'O primeiro',
+            body: 'O primeiro corpo'
+          },
+           {
+            id: 2,
+            title: 'O segundo',
+            body: 'O segundo corpo'
+           },
+           {
+            id: 3,
+            title: 'O terceiro',
+            body: 'O terceiro corpo'
+           },
+        ]
+      })
+      
+    }, 5000);
   }
 
 
