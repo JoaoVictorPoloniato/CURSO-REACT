@@ -4,55 +4,18 @@ import { Component } from 'react';
 
 class App extends Component {
   state = {
-    counter: 0,
-    posts: [
-      {
-        id: 1,
-        title: 'O primeiro',
-        body: 'O primeiro corpo'
-      },
-       {
-        id: 2,
-        title: 'O segundo',
-        body: 'O segundo corpo'
-       },
-       {
-        id: 3,
-        title: 'O terceiro',
-        body: 'O terceiro corpo'
-       },
-    ]
+    posts: []
+
   };
-  TimeoutUpdate = null;
   
   componentDidMount () {
-    this.handleTimeout();
   }
-
-  componentDidUpdate() {
-    this.handleTimeout();
-  }
-
-  componentWillUnmount() {
-    clearTimeout(this.timeoutUpdate);
-  }
-
-  handleTimeout = () => {
-    const { posts, counter } = this.state;
-    posts[0].title = 'O titulo mudou';
-
-    this.timeoutUpdate = setTimeout(() => {
-      this.setState({ posts, counter: counter + 1 });
-    }, 1000);
-  }
-
 
   render(){
-    const { posts, counter } = this.state;
+    const { posts } = this.state;
 
     return (
     <div className="App">
-      <h1>{counter}</h1>
       {posts.map(post => (
         <div key={post.id}>
           <h1>{post.title}</h1>
