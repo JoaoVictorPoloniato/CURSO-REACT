@@ -1,44 +1,43 @@
-
+import React, { Component } from 'react';
 import './App.css';
-import { Component } from 'react';
 
 class App extends Component {
   state = {
     posts: []
-
   };
-  
-  componentDidMount () {
-    this.loadPosts()
-      
+
+  componentDidMount() {
+    this.loadPosts();
   }
 
   loadPosts = async () => {
-    const postsResponse = fetch('https://jsonplaceholder.typicode.com/posts');
+    try {
+      const postsResponse = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const postsJson = await postsResponse.json();
+      this.setState({ posts: postsJson });
+    } catch (error) {
+      console.error('Erro ao carregar posts:', error);
+    }
+  };
 
-    const [posts] = Promise.all([postsResponse]);
-      
-    const postsJson = await posts.json();
-
-    this.setState({ posts: postsJson });
-
-  }
-
-  render(){
+  render() {
     const { posts } = this.state;
 
     return (
-    <div className="App">
-      {posts.map(post => (
-        <div key={post.id}>
-          <h1>{post.title}</h1>
-          <p>{post.body}</p>
+      <section className="container">
+        <div className="posts">
+          {posts.map(post => (
+            <div key={post.id} className="post">
+              <div className="post-content">
+                <h1>{post.title}</h1>
+                <p>{post.body}</p>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </section>
     );
   }
-};
-
+}
 
 export default App;
