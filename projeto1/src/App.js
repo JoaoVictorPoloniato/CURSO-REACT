@@ -38,6 +38,7 @@ class App extends Component {
         <div className="posts">
           {posts.map((post) => (
             <PostCard
+                key={post.id}
                 title={post.title}
                 body={post.title}
                 cover={post.cover}
