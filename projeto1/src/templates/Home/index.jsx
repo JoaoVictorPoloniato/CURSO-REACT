@@ -1,23 +1,19 @@
-
-
 import React, { Component } from 'react';
-
 import './styles.css';
-
 import { Posts } from '../../components/Posts';
-import {loadPosts} from '../../utils/load-posts';
+import { loadPosts } from '../../utils/load-posts';
 
-class Home extends Component {
+export class Home extends Component {
   state = {
     posts: [],
   };
 
- async componentDidMount() {
+  async componentDidMount() {
     await this.loadPosts();
   }
 
   loadPosts = async () => { 
-    const postsAndPhotos = await loadPosts 
+    const postsAndPhotos = await loadPosts(); // Adicione os parênteses para invocar a função
     this.setState({ posts: postsAndPhotos });
   }
   
@@ -34,4 +30,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+import { Home } from './Home';
