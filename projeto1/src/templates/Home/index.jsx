@@ -1,19 +1,22 @@
+
 import React, { Component } from 'react';
+
 import './styles.css';
+
 import { Posts } from '../../components/Posts';
-import { loadPosts } from '../../utils/load-posts';
+import {loadPosts} from '../../utils/load-posts';
 
 export class Home extends Component {
   state = {
     posts: [],
   };
 
-  async componentDidMount() {
+ async componentDidMount() {
     await this.loadPosts();
   }
 
   loadPosts = async () => { 
-    const postsAndPhotos = await loadPosts(); // Adicione os parênteses para invocar a função
+    const postsAndPhotos = await loadPosts 
     this.setState({ posts: postsAndPhotos });
   }
   
@@ -29,5 +32,4 @@ export class Home extends Component {
     );
   }
 }
-
-import { Home } from './Home';
+import Home from './Home';
