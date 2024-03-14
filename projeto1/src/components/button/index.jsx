@@ -6,7 +6,6 @@ export class Button extends Component {
     const {text, onClick, disabled} = this.props;
         return (
             <button
-             disabled
              className='button'
              onClick={onClick}
              disabled={disabled}>
