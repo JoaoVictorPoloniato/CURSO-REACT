@@ -1,4 +1,4 @@
-
+import './styles.css';
 
 export const PostCard = ({ title, body, id, cover }) => {
   console.log('PostCard Data:', { title, body, id, cover });
