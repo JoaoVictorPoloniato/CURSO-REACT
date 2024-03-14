@@ -1,15 +1,26 @@
-import { PostCard } from '../PostCard';
+import React from 'react';
 
-export const Posts = ( posts ) => (
-    <div className="posts">
-    {posts.map((post) => (
-      <PostCard
-          key={post.id}
-          title={post.title}
-          body={post.title}
-          cover={post.cover}
-          id={post.id}
-          />
-    ))}
-  </div>
-);
+const Posts = ({ posts }) => {
+  // Verificar se 'posts' é um array
+  if (!Array.isArray(posts)) {
+    return <div>No posts available</div>;
+  }
+
+  // Se 'posts' for um array, continuar com o mapeamento
+  return (
+    <div>
+      {posts.map(post => (
+        <div key={post.id}>
+          <h2>{post.title}</h2>
+          <p>{post.body}</p>
+          <img src={post.cover} alt={post.title} />
+          <p>Author: {post.author}</p> {/* Adicione o autor do post */}
+          <p>Category: {post.category}</p> {/* Adicione a categoria do post */}
+          {/* Outros elementos do post */}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Posts;
