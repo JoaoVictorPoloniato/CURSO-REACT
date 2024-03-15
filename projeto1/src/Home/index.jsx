@@ -3,6 +3,7 @@ import './styles.css';
 import Posts from '../components/Posts';
 import { loadPosts } from '../utils/load-posts';
 import { Button } from '../components/button';
+import { TextInput } from '../components/Textinput';
 
 export class Home extends Component {
   state = {
@@ -51,25 +52,45 @@ export class Home extends Component {
     const { posts, page, postPerPage, allPosts, searchValue } = this.state;
     const noMorePosts = page + postPerPage >= allPosts.length;
 
+    const filterePosts = !!searchValue ?
+      allPosts.filter(post => {
+        return post.title.toLowerCase().includes(
+          searchValue.toLowerCase()
+        );
+      })
+      : 
+      posts;
+
     return (
       <section className="container">
 
-        
-        <h1>Procure uma palavra: {searchValue}</h1>
-        <input
-         onChange={this.handleChange}
-         value={searchValue}
-         type="search" 
-         /><br /><br /><br /> 
+        {!!searchValue && (
+          <>
+             <h1>Procure uma palavra: {searchValue}</h1>
+          </>
+        )}
+         
+         <TextInput searchValue={searchValue} handleChange={this.handleChange} />
 
-        <Posts posts={posts} />
+         <br /><br /><br /> 
+
+          {filterePosts.length > 0 && (
+            <Posts posts={filterePosts} />
+        )}
+
+          {filterePosts.length == 0 && (
+            <p>Não existem Posts com esse nome</p>
+        )}
 
         <div className="button-container">
+          {!searchValue && (
           <Button 
           text="Carregar mais Posts"
           onClick={this.loadMorePosts}
           disabled={noMorePosts}
           />
+
+      )}   
         </div>
       </section>
     );
@@ -77,3 +98,4 @@ export class Home extends Component {
 }
 
 export default Home;
+
