@@ -63,17 +63,16 @@ export class Home extends Component {
 
     return (
       <section className="container">
-
+        <div class="search-container">
         {!!searchValue && (
-          <>
+          
              <h1>Procure uma palavra: {searchValue}</h1>
-          </>
+          
         )}
          
          <TextInput searchValue={searchValue} handleChange={this.handleChange} />
 
-         <br /><br /><br /> 
-
+         </div>
           {filterePosts.length > 0 && (
             <Posts posts={filterePosts} />
         )}
