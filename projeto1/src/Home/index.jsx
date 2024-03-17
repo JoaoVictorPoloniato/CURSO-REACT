@@ -14,6 +14,7 @@ export class Home extends Component {
     searchValue: ''
   };
 
+  
   async componentDidMount() {
     await this.loadPosts();
   }
