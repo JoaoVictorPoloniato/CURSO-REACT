@@ -71,7 +71,7 @@ const loadMorePosts = () => {
           <Posts posts={filterePosts} />
       )}
 
-        {filterePosts.length == 0 && (
+        {filterePosts.length === 0 && (
           <p>Não existem Posts com esse nome</p>
       )}
 
