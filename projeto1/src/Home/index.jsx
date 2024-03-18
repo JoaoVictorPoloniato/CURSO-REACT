@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import './styles.css';
 import Posts from '../components/Posts';
 import { loadPosts } from '../utils/load-posts';
-import { Button } from '../components/button';
+import Button  from '../components/button';
 import { TextInput } from '../components/Textinput';
 
 
@@ -11,7 +11,7 @@ export const Home = () => {
   const [posts, setposts] = useState([]);
   const [allPosts, setallPosts] = useState([]);
   const [page, setpage] = useState(0);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(2);
   const [searchValue, setsearchValue] = useState('');
 
   const noMorePosts = page + postsPerPage >= allPosts.length; 

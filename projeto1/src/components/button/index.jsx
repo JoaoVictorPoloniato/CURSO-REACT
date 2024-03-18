@@ -1,16 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
-export class Button extends Component {
 
-   render() {
-    const {text, onClick, disabled} = this.props;
-        return (
-            <button
-             className='button'
-             onClick={onClick}
-             disabled={disabled}>
-                {text}
-            </button>
-        );
+const Button = ({ text, onClick, disabled }) => {
+  const [isClicked, setIsClicked] = useState(false); 
+
+  useEffect(() => {
+
+    if (isClicked) {
+      console.log('Button clicked!');
+      
     }
-}
+  }, [isClicked]);
+
+  return (
+    <button
+      className='button'
+      onClick={() => {
+        setIsClicked(true);
+        onClick(); 
+      }}
+      disabled={disabled}>
+      {text}
+    </button>
+  );
+};
+
+export default Button;
